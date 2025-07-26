@@ -1,0 +1,99 @@
+<script>
+    function fillpizza()
+    {
+        var i=domino.selectedIndex
+        switch(i)
+        {
+            case 1:
+                var c=[['Veg Cheese Pizza',399],['Anmolpreet Mix Veg Pizza ',500]]
+                addItems(c)
+                break
+            case 2:
+                var cy=[['Chicken Tikka Pizza',799],['Butter Chicken Pizza ',899]]
+               addItems(cy)
+                break
+        }
+    }
+  function addItems(pizza_array)
+    {
+        
+        removeItems()
+        for(i=0;i<pizza_array.length;i++)
+    {
+        var opt=document.createElement('option')
+        opt.text=pizza_array[i][0]
+        opt.value=pizza_array[i][1]
+        t.add(opt)
+    }
+    }
+    function removeItems()
+    {
+        for(i=t.options.length;i>=1;i--)
+    {
+        t.remove(i)
+    }
+    }
+    function show()
+    {
+        var i=domino.selectedIndex
+        var j=t.selectedIndex
+        var pn=domino.options[i].text
+        var pv=t.options[j].text
+        var pp=parseInt(t.options[j].value)
+        var gst=pp*5/100
+        var na=parseInt(pp)+parseInt(gst)
+        var h=`<table border='1' cellspacing='0' width='20%' bgcolor='#FFF8E1'>`
+             h+=`<caption><h3>  ${pn} </h3> </caption> `
+         h+=`<tr><th>Domino's Pizza <br>[Franchise: Jubilant FoodWorks Ltd.]<br Branch: Gomti Nagar, Lucknow - UP-226010<br>
+               GSTIN: 09AABCJ8455N1Z9   FSSAI: 10021064000999<br>
+               ------------------------------------------------<br>
+              "Order No: #20511&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: 26-07-2025"<br>
+             Mode: Takeaway&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time: 6:45 PM<br>
+            Cashier: Ritesh Singh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bill No: DMP20511<br>
+
+            -------------------------------------------------------
+
+</th></tr>`
+ h+=`<tr><th><img src='${pv}.jpg' width='50%' height='50%'   /></th></tr>`
+  h+=`<tr><td><b>Base Price : </b></td><td align='right'> &#8377; ${pp.toFixed(2)}</td></tr>`
+  h+=`<tr><td><b>GST[28%]: <b></td><td align='right'>&#8377; ${gst.toFixed(2)}</td></tr>`
+     h+=`<tr bgcolor='#dfffd8'><td><b>Toral Amount: </b></td><td align='right'>&#8377; ${ na.toFixed(2)}</td></tr>`
+ 
+            //var h=`<table border='1' cellspacing='0' width='20%'>`
+             //h+=`<caption><h3> ${pn} : ${pv}  </h3> </caption> `
+       //  h+=`</table>`
+                result.innerHTML=h
+
+
+
+    }
+</script>
+<html>
+    <body bgcolor="#F0F8FF" >
+        <img src="dominospizza.png" alt="">
+        <center>
+        <h1>Domino's Pizza</h1>
+        <h2>[Franchise: Jubilant FoodWorks Ltd.]</h2>
+        <h3>Branch: Gomti Nagar, Lucknow - UP-226010</h3>
+        </center>
+        <hr color="red">
+    
+    <center>
+    <b>Type</b><br><br>
+<select id="domino" onchange="fillpizza()">
+    <option>--select catagery--</option>
+     <option>Veg</option>
+    <option>Non Veg</option>
+</select><br><br>
+<b>Pizza,s</b><br>
+<select id="t" onchange="show()">
+        <option>--select pizaa--</option>
+
+
+</select>
+<br><br>
+
+<div id="result"></div>
+</center>
+</body>
+</html>
