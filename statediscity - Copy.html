@@ -1,0 +1,86 @@
+<script>
+    function filldistric()
+    {
+        var i=state.selectedIndex
+        switch(i)
+        {
+            case 1:
+                var mp=['gwalior','indore']
+                fillDD(mp)
+                break;
+            
+                case 2:
+                var up=['kanpur','janshi']
+                fillDD(up)
+                break;
+
+
+            }
+    }
+    function fillDD(distric_array)
+    {
+        removeItems()
+        for(i=0;i<distric_array.length;i++)
+    {
+            var opt=document.createElement('option')
+            opt.text=distric_array[i]
+            distric.add(opt)
+    }
+    }
+    function removeItems()
+    {
+        for(i=distric.options.length;i>=1;i--)
+    {
+        distric.remove(i)
+    }
+    }
+    function fillcity()
+    {
+        var i=state.selectedIndex
+        var j=distric.selectedIndex
+        switch(j)
+        {
+            case 1:
+                    var gw = ['lahar', 'dabra']
+                    fillAA(gw)
+                    break;
+            case 2:
+                var In=['Sanwer', 'Hatod']
+                fillAA(In)
+                break;
+
+        }
+    }
+    function fillAA(tehshil_array)
+    {
+        removecity()
+        for(j=0;j<tehshil_array.length;j++)
+    {
+         var abc=document.createElement('option')
+            abc.text=tehshil_array[j]
+            city.add(abc)
+    }
+    }
+    function removecity()
+    {
+        for(j=city.options.length;j>=1;j--)
+    {
+        city.remove(j)
+    }
+    }
+</script>
+<html>
+    <select  id="state" onchange="filldistric()">
+        <option>--select state--</option>
+        <option>Madhya Pradesh</option>
+        <option>Utter Pradesh</option>
+    </select><br><br>
+    <select  id="distric" onchange="fillcity()">
+
+        <option>--select distric--</option>
+    </select><br><br>
+    <select  id="city">
+        <option>--select city--</option>
+        
+    </select>
+    </html>
