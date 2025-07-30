@@ -1,0 +1,30 @@
+<script>
+  function call()
+  {
+    var i=mov.selectedIndex
+    
+  
+    switch(i)
+    {
+      case 1:
+        result.innerHTML=`<img src="Hera Pheri.jpg" width="30%">`;
+          result.innerHTML+=`<img src="Bhool Bhulaiyaa.jpg" width="30%">`
+        break;
+        case 2:
+         result.innerHTML=`<img src="Talk To Me.jpg" width="22%">&nbsp;`
+           result.innerHTML+=`<img src="Oddity.jpg" width="24%">`
+          
+          }
+
+    
+  }
+  
+</script>
+<html>
+  <select  id="mov" onchange="call()">
+    <option>--select cetagery--</option>
+     <option>comedy</option>
+      <option>horror</option>
+  </select><br><br><br><br>
+  <div id="result"></div>
+</html>
