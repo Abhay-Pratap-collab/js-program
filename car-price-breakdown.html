@@ -1,0 +1,96 @@
+<script>
+    function fillcar()
+    {
+        var i=car.selectedIndex
+        switch(i)
+        {
+            case 1:
+                var thar=[['AX',130000],['LX petrol',140000],['Lx diesel',1350000]]
+                inf(thar)
+                break
+             case 2:
+                var Scorpio=[['S11',17000000],['S9',1600000],['S5',120000]]
+                inf(Scorpio)
+                break
+            case 3:
+                var balero=[['B4',17000000],['B6',17000000],['B6 O',17000000]]
+                inf(balero)
+                break
+        }
+    }
+    function inf(model_array)
+    {
+        removeItems()
+        for(i=0;i<model_array.length;i++)
+    {
+        var opt=document.createElement('option')
+        opt.text=model_array[i][0]
+        opt.value=model_array[i][1]
+        model.add(opt)
+
+    }
+    }
+    function removeItems()
+    {
+        for(i=model.options.length;i>=1;i--)
+    {
+        model.remove(i)
+    }
+    }
+   function show()
+   {
+    var i=car.selectedIndex
+    var j=model.selectedIndex
+    var cn=car.options[i].text
+    var cm=model.options[j].text
+    var cp=parseInt(model.options[j].value)
+    var gst=cp*28/100
+    var ins=cp*8/100
+    var rto=cp*10/100
+    var np=parseInt(gst)+parseInt(ins)+parseInt(rto)+parseInt(cp)
+    var h=`<table border='1' cellspacing='0' width='20%'>`
+        h+=`<caption><h3> ; ${cn} ${cm} On Road Price </h3> </caption> `
+        h+=`<tr><th><img src='mahindra logo.png' width='100' height='100'</th></tr>`
+        h+=`<tr><th><img src='${cm}.webp' width='100' height='150'/></th></tr>`
+        h+=`</table>`
+        h+=`<table border='1' cellspacing='0' width='30%'>`
+        h+=`<tr><td><b>Base Price : </b></td><td align='right'> &#8377; ${cp.toFixed(2)}</td></tr>`
+          h+=`<tr><td><b>GST[28%]: <b></td><td align='right'>&#8377; ${gst.toFixed(2)}</td></tr>`
+             h+=`<tr><td><b>Insurance[8%] : </b></td><td align='right'>&#8377; ${ins.toFixed(2)}</td></tr>`
+          h+=`<tr><td><b>RTO [10%] : </b></td><td align='right'>&#8377; ${rto.toFixed(2)}</td></tr>`
+            h+=`<tr><td><b>Toral Amount: </b></td><td align='right'>&#8377; ${ np.toFixed(2)}</td></tr>`
+        result.innerHTML=h
+
+}
+</script>
+<html>
+    <body>
+        <center>
+            <h1>DreamDrive Motors</h1>
+            <h2>Plot No. 45, Auto Avenue,<br>
+Sector 21, Gurugram – 122001,</h2>
+<h3>Haryana, India</h3>
+<h4>📞 +91 98765 43210
+📧 info@dreamdrive.in</h4>
+        </center><hr>
+
+        
+  <center>    <b>Car</b>
+    <select  id="car" onchange="fillcar()">
+        <option>-select car-</option>
+        <option>Thar</option>
+        <option >Scorpio</option>
+        <option>Balero</option>
+    </select>
+    <br><br>
+    <select  id="model" onchange="show()">
+        <option>-select models-</option>
+    </select><br><br>
+    </center>
+    <center>
+
+    <div id="result"></div>
+    </center>
+
+      </body>
+    </html>
