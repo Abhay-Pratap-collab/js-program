@@ -1,0 +1,64 @@
+<script>
+    function forward()
+    {
+        var i=box1.selectedIndex
+        if(i>=0)
+    {
+        var opt=document.createElement('option')
+        opt.text=box1.options[i].text
+        box2.add(opt)
+        box1.remove(i)
+
+    }
+       
+    }
+    function  previous()
+    {
+        var i=box2.selectedIndex
+        if(i>=0)
+    {
+        var opt=document.createElement('option')
+        opt.text=box2.options[i].text
+        box1.add(opt)
+        box2.remove(i)
+    }
+    }
+    function allnext()
+    {
+       for(i=0;i<box1.options.length;)
+    {
+        var opt=document.createElement('option')
+        opt.text=box1.options[0].text
+        box2.add(opt)
+        box1.remove(0)
+    }
+    }
+    function allpre()
+    {
+        for(i=0;i<box2.options.length;)
+    {
+        var opt=document.createElement('option')
+        opt.text=box2.options[0].text
+        box1.add(opt)
+        box2.remove(0)
+        
+    }
+    }
+    
+    
+</script>
+<html>
+    <select  id="box1" size="2">
+        <option>Pepsi</option>
+        <option>Sprite</option>
+    </select>
+    <select  id="box2" size="2">
+      
+    </select><br>
+    
+    <input type="button" value=">"  onclick="forward()">
+     <input type="button" value=">>"  onclick=" allnext()">
+    <input type="button" value="<"  onclick=" previous()">
+      <input type="button" value="<<"  onclick=" allpre()">
+
+</html>
