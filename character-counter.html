@@ -1,0 +1,53 @@
+<script>
+    function call()
+    {
+        var x='Aaaaaa 12'
+        var u=l=d=sps=spl=0
+        for(i=0;i<x.length;i++)
+        {
+            var j=x.charCodeAt(i)
+            if(j>=65 && j<=90)
+        {
+            u++
+        
+        }
+         else if(j>=97 && j<=122)
+        {
+                l++
+        }
+       
+         else if(j==32)
+        {
+            sps++
+        }
+         else if(j>=48 && j<=57)
+        {
+                d++
+        }
+        else 
+        {
+            spl++
+        }
+       
+       
+        }  
+        upper.innerHTML=u
+        lower.innerHTML=l
+       
+        space.innerHTML=sps
+        spec.innerHTML=spl
+        dig.innerHTML=d
+         }
+    
+</script>
+<html>
+    <input type="button" value="cilck here" onclick="call()"><br>
+   upper case <div id="upper"> </div><br>
+    lower case<div id="lower"> </div><br>
+    specail case<div id="spec"> </div><br>
+       space case <div id="space"> </div><br>
+         number <div id="dig"> </div><br>
+
+
+
+</html>
