@@ -1,0 +1,260 @@
+<script>
+    function call()
+    {
+        var roll=parseInt(r.value)
+        var name=sn.value
+
+        var fathername=fn.value
+        var mothername=mn.value
+        
+         var hind=parseInt(h.value)
+         
+         var english=parseInt(e.value)
+       var math=parseInt(m.value)
+       var science=parseInt(s.value)
+       var social=parseInt(st.value)
+       var t=hind+english+math+science+social
+       var per=t/500*100
+       if(per>=90 && per<=100)
+       {
+        gr.innerHTML=`A`
+        gr.bgColor='green'
+
+       }
+        else if(per>=70 && per<=89)
+       {
+        gr.innerHTML=`B`
+        gr.bgColor='green'
+
+        
+       }
+      else if(per>=35 && per<=69)
+       {
+        gr.innerHTML=`C`
+        gr.bgColor=`green`
+       }
+    else 
+       {
+        gr.innerHTML=`Fail`
+        gr.bgColor='red'
+       }
+    
+
+
+       percetage.innerHTML=`${per.toFixed(2)}`
+
+
+      
+      
+       var pre=''
+       var fs=''
+       if(gend.value=='Male')
+       {
+        pre='Mr'
+        fs="s/o"
+       }
+       else 
+       {
+        pre='Miss'
+        fs='d/o'
+       }
+        rol.innerHTML=`<b>Roll number</b> ${roll}`
+        nam.innerHTML=`<b>Name </b>${pre} ${name} ${fs} ${fathername}<br><b>Mother Name</b>
+        ${mothername} <br><b>DOB</b> ${d.value}`
+      
+ to.innerHTML=t
+       
+    
+     ho.innerHTML=hind
+     var sup=[]
+       if(hind<33)
+       {
+
+            
+        ho.bgColor="red"
+        sup.innerHTML=`Hindi`
+       
+     
+       }
+       eo.innerHTML=english
+        if(english<33)
+        {
+        eo.bgColor="red"
+         sup.innerHTML=`English`
+        }       
+       
+       mo.innerHTML=math
+       if(math<33)
+       {
+        mo.bgColor="red"
+         sup.innerHTML=`Math`
+       }
+       so.innerHTML=science
+       if(science<33)
+       {
+        so.bgColor="red"
+         sup.innerHTML=`Science`
+       }
+       sst.innerHTML=social
+       if(social<33)
+       {
+        sst.bgColor="red"
+         sup.innerHTML=`Social`
+       }
+       
+   
+    }
+    
+</script>
+<html>
+    <body>
+  <form>
+    <table>
+        <caption><h1><span><u>Student&nbsp;registration</u></span></h1></caption>
+        <tr>
+            <td><b>Roll Number</b></td>
+           <td><input required type="text" name="r" id="r"></td>
+        </tr>
+        <tr>
+            <td><b>Student Name</b></td>
+           <td><input required pattern="[A-Z a-z]+" type="text" name="sn" id="sn"></td>
+        </tr>
+        <tr>
+            <td><b>Father Name</b></td>
+           <td><input type="text" name="fn" id="fn"></td>
+        </tr>
+        <tr>
+            <td><b>Mother Name</b></td>
+           <td><input type="text" name="mn" id="mn"></td>
+        </tr>
+        <tr>
+            <td><b>DOB</b></td>
+           <td><input type="date" name="d" id="d"></td>
+        </tr>
+        <tr>
+            <td><b>Gender</b></td>
+           <td><select  id="gend" onchange="show()">
+            <option>--select gender--</option>
+            <option>Male</option>
+             <option>Female</option>
+             </select>
+        </td>
+        </tr>
+                <tr>
+            <td><b>Hindi</b></td>
+           <td><input type="text" name="h" id="h"></td>
+        </tr>
+        <tr>
+            <td><b>Englsih</b></td>
+           <td><input type="text" name="e" id="e"></td>
+
+        </tr>
+        <tr>
+            <td><b>Math</b></td>
+           <td><input type="text" name="m" id="m"></td>
+        </tr>
+        <tr>
+            <td><b>Science</b></td>
+           <td><input type="text" name="s" id="s"></td>
+        </tr>
+        <tr>
+            <td><b>Social</b></td>
+           <td><input type="text" name="st" id="st"></td>
+        </tr>
+
+        
+        
+
+    </table>
+  </form>
+    <input type="button" value="submit" onclick="call()">
+  <br><br><br>
+  
+  <center>  <table bgcolor="bisque"  border="1" width="50%" cellpadding="1">
+   <tr> <td width="25%"><img src="CBSE logo.png"  width="50%"></td>
+    <td><b>Central Board of Secondary Education</b></td>
+</tr>
+</table>
+<table border="1" width="50%">
+    <tr>
+        <td><div id="rol"></div>
+            <div id="nam"></div>
+            
+        </td>
+</tr>
+
+</table>
+
+<table bgcolor="bisque"  border="1" width="50%">
+    <tr align="center">
+        <td><b>Subject code</b></td></td>
+
+        <td><b>Subject</b></td>
+       
+        <td><b>Min</b></td>
+        <td><b>Max</b></td>
+        <td><b>Obtain</b></td>
+    </tr>
+    <tr align="center">
+        <td>048</td>
+        <td>Hindi</td>
+        <td>35</td>
+        <td>100</td>
+        <td id="ho"></td>
+    </tr>
+      <tr align="center">
+        <td>057</td>
+        <td>English</td>
+        <td>35</td>
+        <td>100</td>
+        <td id="eo"></td>
+    </tr>
+     <tr align="center">
+        <td>098</td>
+        <td>Math</td>
+        <td>35</td>
+        <td>100</td>
+        <td id="mo"></td>
+    </tr>
+     <tr align="center">
+        <td>047</td>
+        <td>Science</td>
+        <td>35</td>
+        <td>100</td>
+        <td id="so"></td>
+    </tr>
+     <tr align="center">
+        <td>012</td>
+        <td>Social</td>
+        <td>35</td>
+        <td>100</td>
+        <td id="sst"></td>
+    </tr>
+    </tr>
+</table>
+<table bgcolor="tan" border="1" width="50%">
+    <tr>
+    <td width="80%"><b>Total</b></td>
+    <td id="to" width="30%"></td>
+</tr>
+ <tr>
+    <td width="80%"><b>Percentage</b></td>
+    <td id="percetage" width="30%"></td>
+    </tr>
+     <tr>
+    <td width="80%"><b>Grade<b></td>
+    <td id="gr" width="30%"></td>
+    </tr>
+    
+
+
+
+</table>
+
+
+
+
+  </center>
+   
+    </body>
+</html>
