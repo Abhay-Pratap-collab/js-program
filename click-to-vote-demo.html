@@ -17,19 +17,32 @@
         name2.style.left=900
 
 
+//usage mouseover instead of mousedown 
 
-
-        document.addEventListener("mousedown", function (event) {
+        dvpic.addEventListener("mouseover", function (event) {
             //console.log(event.screenX,event.screenY)
 
-      if(event.screenX,event.screenY==941,621)
-      {
-        dvpic.style.left=1200
-      }
-      else
-      {
-        dvpic.style.left=900
-      }
+        // for find the specific page x,y point 
+
+
+            
+            // This works when you click on a specific button.
+
+      // if(event.screenX,event.screenY==941,621)
+      // {
+      //   dvpic.style.left=1200
+      // }
+      // else
+      // {
+      //   dvpic.style.left=900
+      // }
+            //If you want the text to move anywhere on the page after the cursor reaches a specific position,
+            
+            var x=parseInt(Math.random()*1000)
+var y=parseInt(Math.random()*100)
+dvpic.style.left=x
+dvpic.style.top=y
+
         
 
         }
@@ -40,6 +53,7 @@
 <html>
 
 <body onload="call()">
+    // usage onload event because when run this code call funtion call insitintely
 <center>   <h1><b><i>India</i></b></h1>
             <h2><b>Vote:  American foreign policy </b></h2>
     </center>
@@ -50,8 +64,9 @@
     <img  src="donal.jpg" width="300" height="305" id="dpic" style="position: absolute;">
     <h1 style="position: absolute;" id="name2">Donal Tarrif<h1></h1>
     <img src="vote.png" width="190" height="30" id="vpic" style="position: absolute;">
-    <img onclick="call()"src="vote.png" width="190" height="30" id="dvpic" style="position: absolute;">
+    <img src="vote.png" width="190" height="30" id="dvpic" style="position: absolute;">
 
 </body>
+
 
 </html>
